@@ -63,13 +63,13 @@ function check(CurrentLevel) {
       $("body").removeClass("game-over"), 200;
     });
     $("#level-title").text("Game Over, Press Any Key to Restart");
-    $(document).on("keydown", reset);
-  }
-}
-function reset() {
+    $(document).on("keydown", function reset() {
   started = 0;
   lvl = 1;
   gamePattern = [];
 
   userChosenPattern = [];
+});
+  }
 }
+
