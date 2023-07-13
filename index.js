@@ -3,7 +3,12 @@ var gamePattern = [];
 var lvl = 1;
 var started = 0;
 var userlevel = 1;
-
+$(document).on("keydown", function loop() {
+  if (started === 0) {
+    newSequence();
+    started++;
+  }
+});
 function newSequence() {
   userChosenPattern = [];
   var randomNumber = Math.round(Math.random() * 3);
@@ -40,12 +45,7 @@ function animatePress(currentColor) {
     $(currentColor).removeClass("pressed");
   }, 100);
 }
-$(document).on("keydown", function loop() {
-  if (started === 0) {
-    newSequence();
-    started++;
-  }
-});
+
 function check(CurrentLevel) {
   if (userChosenPattern[CurrentLevel] === gamePattern[CurrentLevel]) {
     console.log("success");
